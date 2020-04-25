@@ -8,6 +8,8 @@ go_python = 'cd python && '
 create_dir = 'mkdir ' + project_name + ' && '
 go_into_dir = 'cd ' + project_name + ' && '
 index_file = 'touch index.js && npm init -y && npm i express body-parser && '
+start_server = 'node index.js && '
+deploy_to_heroku = 'heroku create && git add . && git commit -m"deploying to heroku" && git push heroku master && '
 open_project = 'code .'
 
 #Command to Build Project
