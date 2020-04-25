@@ -7,7 +7,7 @@ go_projects = 'cd projects && '
 go_python = 'cd python && '
 create_dir = 'mkdir ' + project_name + ' && '
 go_into_dir = 'cd ' + project_name + ' && '
-index_file = 'touch index.js && '
+index_file = 'touch index.js && npm init -y && npm i express body-parser && '
 open_project = 'code .'
 
 system_command = go_root + go_projects + go_python + create_dir + go_into_dir + index_file + open_project
