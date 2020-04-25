@@ -13,7 +13,7 @@ deploy_to_heroku = 'heroku create && git add . && git commit -m"deploying to her
 open_project = 'code .'
 
 #Command to Build Project
-system_command = go_root + go_projects + go_python + create_dir + go_into_dir + index_file + open_project
+system_command = go_root + go_projects + go_python + create_dir + go_into_dir + index_file + deploy_to_heroku + open_project
 print(system_command)
 
 #Build project
