@@ -21,5 +21,18 @@ os.system(system_command)
 user = 'nicolas'
 location = '/Users/' + user + '/projects/python/' + project_name + '/index.js'
 f = open(location, "w")
-f.write("console.log('New project!!'); \nconsole.log('The test worked!');")
+
+express = """const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(process.env.PORT || 8080, () => {
+  console.log("Server started...");
+});
+"""
+
+f.write(express)
 print('Your project has been initialized!')
