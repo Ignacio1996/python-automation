@@ -58,7 +58,7 @@ import { Text, View, StyleSheet, Button } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import {Home, Profile, Login, SignUp} from '../screens';
+import {Home, Profile, Login, SignUp} from './screens';
 
 const Stack = createStackNavigator();
 
