@@ -9,7 +9,7 @@ react_navigation = 'npm i @react-navigation/native react-native-reanimated react
 pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
 auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && cd .. && '
-screens = 'mkdir screens && cd screens && mkdir Main Login SignUp Profile && touch index.js Home/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
+screens = 'mkdir screens && cd screens && mkdir Home Login SignUp Profile && touch index.js Home/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
 
 start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 open_project = 'code .'
@@ -66,8 +66,8 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
@@ -114,6 +114,8 @@ export {Home, Profile, Login, SignUp}
 
 app_file.write(app_js)
 auth_navigation_file.write(authentication_stack)
+
+screens_index_file.write(index_screen)
 
 home_screen_file.write(default_screen)
 profile_screen_file.write(default_screen)
