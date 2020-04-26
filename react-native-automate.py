@@ -10,7 +10,6 @@ pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
 auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && cd .. && '
 screens = 'mkdir screens && cd screens && mkdir Home Login SignUp Profile && touch index.js Home/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
-
 start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 open_project = 'code .'
 
@@ -91,7 +90,7 @@ import React from 'react';
 """
 
 default_screen = """import React from 'react';
-import {View, Text, Button} from 'react-native;
+import {View, Text, Button} from 'react-native';
 function Screen(props) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
