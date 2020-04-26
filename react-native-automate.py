@@ -6,7 +6,7 @@ go_dir = 'cd ~ && cd projects && cd python && '
 init_react_native = 'npx react-native init ' + project_name
 go_into_app = ' && cd ' + project_name + ' && pwd'
 start_app = ' && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
-react_navigation = 'npm install @react-navigation/native react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-navigation/stack'
+react_navigation = 'npm install @react-navigation/native react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-navigation/stack && '
 open_project = 'code .'
 
 #Command to Build Project
@@ -64,5 +64,5 @@ const styles = StyleSheet.create({
 });
 """
 
-f.write(express)
+f.write(app_js)
 print('Your project has been initialized with react navigation!')
