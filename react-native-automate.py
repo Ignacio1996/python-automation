@@ -5,7 +5,7 @@ project_name = raw_input('Enter React Native project name: ')
 go_dir = 'cd ~ && cd projects && cd python && '
 init_react_native = 'npx react-native init ' + project_name + ' && '
 go_into_app = 'cd ' + project_name + ' && pwd && '
-react_navigation = 'npm i @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack && '
+react_navigation = 'npm i @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack @react-navigation/drawer && '
 pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
 auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && cd .. && '
@@ -52,37 +52,28 @@ screens_index_file = open(screens_index_location, "w")
 
 app_js = """
 import 'react-native-gesture-handler';
-import React, { Component } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/stack';
 
 import {Home, Profile, Login, SignUp} from './screens';
 
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Login" component={Login} />
+        <Drawer.Screen name="Profile" component={Profile} />
+        <Drawer.Screen name="SignUp" component={SignUp} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 """
 
 authentication_stack = """
