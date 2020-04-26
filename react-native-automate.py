@@ -35,10 +35,20 @@ auth_navigation_file = open(auth_navigation_location, "w")
 
 # Screens
 home_screen_location = app_location + '/screens/Home/index.js'
+home_screen_file = open(home_screen_location, "w")
+
 login_screen_location = app_location + '/screens/Login/index.js'
+login_screen_file = open(login_screen_location, "w")
+
 signup_screen_location = app_location + '/screens/SignUp/index.js'
+signup_screen_file = open(signup_screen_location, "w")
+
 profile_screen_location = app_location + '/screens/Profile/index.js'
+profile_screen_file = open(profile_screen_location, "w")
+
 screens_index_location = app_location + '/screens/index.js'
+screens_index_file = open(screens_index_location, "w")
+
 
 
 app_js = """
@@ -48,22 +58,7 @@ import { Text, View, StyleSheet, Button } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-function HomeScreen(props) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button title="Go to Details" onPress={()=>props.navigation.navigate("Details")}/>
-    </View>
-  );
-}
-function DetailsScreen(props) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-      <Button title="Go to Home" onPress={()=>props.navigation.navigate("Home")}/>
-    </View>
-  );
-}
+import {Home, Profile, Login, SignUp} from '../screens';
 
 const Stack = createStackNavigator();
 
@@ -73,6 +68,8 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="SignUp" component={SignUp} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -98,7 +95,7 @@ import {View, Text, Button} from 'react-native;
 function Screen(props) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
+      <Text>Default Screen</Text>
       <Button title="Go to Home" onPress={()=>props.navigation.navigate("Home")}/>
     </View>
   );
@@ -117,4 +114,11 @@ export {Home, Profile, Login, SignUp}
 
 app_file.write(app_js)
 auth_navigation_file.write(authentication_stack)
+
+home_screen_file.write(default_screen)
+profile_screen_file.write(default_screen)
+signup_screen_file.write(default_screen)
+login_screen_file.write(default_screen)
+
+
 print('Your project has been initialized with react navigation!')
