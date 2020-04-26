@@ -54,7 +54,7 @@ app_js = """
 import 'react-native-gesture-handler';
 import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import {Home, Profile, Login, SignUp} from './screens';
 
