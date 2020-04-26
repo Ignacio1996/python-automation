@@ -21,8 +21,15 @@ os.system(system_command)
 
 # Write Files
 user = 'nicolas'
-location = '/Users/' + user + '/projects/python/' + project_name + '/App.js'
-app_file = open(location, "w")
+app_location = '/Users/' + user + '/projects/python/' + project_name
+
+# App.js
+app_file_location = app_location + '/App.js'
+app_file = open(app_file_location, "w")
+
+# Authentication files
+auth_navigation_location = app_location + '/navigation/AuthNavigation/index.js
+auth_navigation_file = open(auth_navigation_location, "w")
 
 app_js = """
 import 'react-native-gesture-handler';
@@ -73,8 +80,9 @@ const styles = StyleSheet.create({
 """
 
 authentication_stack = """
-
+import React from 'react';
 """
 
 app_file.write(app_js)
+auth_navigation_file.write(authentication_stack)
 print('Your project has been initialized with react navigation!')
