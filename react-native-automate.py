@@ -6,10 +6,10 @@ go_dir = 'cd ~ && cd projects && cd python && '
 init_react_native = 'npx react-native init ' + project_name + ' && '
 go_into_app = 'cd ' + project_name + ' && pwd && '
 react_navigation = 'npm i @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack && '
-pod_install = 'cd ios && pod install && cd .. && '
+pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
 auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && '
-start_app = 'npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
+start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 open_project = 'code .'
 
 #Command to Build Project
@@ -28,7 +28,7 @@ app_file_location = app_location + '/App.js'
 app_file = open(app_file_location, "w")
 
 # Authentication files
-auth_navigation_location = app_location + '/navigation/AuthNavigation/index.js
+auth_navigation_location = app_location + '/navigation/AuthNavigation/index.js'
 auth_navigation_file = open(auth_navigation_location, "w")
 
 app_js = """
