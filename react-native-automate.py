@@ -9,11 +9,13 @@ react_navigation = 'npm i @react-navigation/native react-native-reanimated react
 pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
 auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && cd .. && '
+screens = 'mkdir screens && cd screens && mkdir Main Login SignUp Profile && touch index.js Main/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
+
 start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 open_project = 'code .'
 
 #Command to Build Project
-system_command = go_dir + init_react_native + go_into_app + react_navigation + pod_install + firebase + auth_navigation + start_app + open_project
+system_command = go_dir + init_react_native + go_into_app + react_navigation + pod_install + firebase + auth_navigation + screens + start_app + open_project
 print("Full command" + system_command)
 
 #Build project
