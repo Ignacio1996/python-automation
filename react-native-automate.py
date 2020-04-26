@@ -46,12 +46,12 @@ profile_screen_location = app_location + '/screens/Profile/index.js'
 profile_screen_file = open(profile_screen_location, "w")
 
 details_screen_location = app_location + '/screens/Details/index.js'
-details_screen_file = open(profile_screen_location, "w")
+details_screen_file = open(details_screen_location, "w")
 
 screens_index_location = app_location + '/screens/index.js'
 screens_index_file = open(screens_index_location, "w")
 
-home_navigation_stack_location = app_location + './navigation/HomeNavigation/index.js'
+home_navigation_stack_location = app_location + '/navigation/HomeNavigation/index.js'
 home_navigation_stack_file = open(home_navigation_stack_location, "w")
 
 
