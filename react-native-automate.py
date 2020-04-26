@@ -6,11 +6,12 @@ go_dir = 'cd ~ && cd projects && cd python && '
 init_react_native = 'npx react-native init ' + project_name
 go_into_app = ' && cd ' + project_name + ' && pwd'
 start_app = ' && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
-react_navigation = 'npm install @react-navigation/native react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-navigation/stack && '
+react_navigation = 'npm install @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack && '
+pod_install = 'npx pod-install ios &&'
 open_project = 'code .'
 
 #Command to Build Project
-system_command = go_dir + init_react_native + go_into_app + start_app + react_navigation + open_project
+system_command = go_dir + init_react_native + go_into_app + start_app + react_navigation + pod_install + open_project
 print("Full command" + system_command)
 
 #Build project
@@ -22,8 +23,11 @@ location = '/Users/' + user + '/projects/python/' + project_name + '/App.js'
 f = open(location, "w")
 
 app_js = """
+import 'react-native-gesture-handler';
 import React, { Component } from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 function HomeScreen() {
   return (
