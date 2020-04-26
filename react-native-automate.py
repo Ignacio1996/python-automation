@@ -8,7 +8,7 @@ go_into_app = 'cd ' + project_name + ' && pwd && '
 react_navigation = 'npm i @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack && '
 pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
-auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && '
+auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && cd .. && '
 start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 open_project = 'code .'
 
