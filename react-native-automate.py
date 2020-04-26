@@ -64,13 +64,15 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import {Home, Profile, Login, SignUp} from './screens';
 
+import HomeNavigationStack from './navigation/HomeNavigation';
+
 const Drawer = createDrawerNavigator();
 
 function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Home" component={HomeNavigationStack} />
         <Drawer.Screen name="Login" component={Login} />
         <Drawer.Screen name="Profile" component={Profile} />
         <Drawer.Screen name="SignUp" component={SignUp} />
@@ -93,7 +95,7 @@ import {Home, Details} from '../../screens';
 
 const Stack = createStackNavigator();
 
-export const HomeNavigationStack = () => {
+const HomeNavigationStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />
@@ -101,6 +103,8 @@ export const HomeNavigationStack = () => {
     </Stack.Navigator>
   );
 };
+
+export default HomeNavigationStack;
 
 """
 
