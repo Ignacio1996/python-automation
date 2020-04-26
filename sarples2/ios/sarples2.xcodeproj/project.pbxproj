@@ -20,6 +20,8 @@
 		7BC515DE3C5ABA8AEFCFE71A /* libPods-sarples2-sarples2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE41D5D25ABAAFE1A8370414 /* libPods-sarples2-sarples2Tests.a */; };
 		81FC2DFCC35648958C699B90 /* libPods-sarples2-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EAD12FB76163B278B2DF2C /* libPods-sarples2-tvOS.a */; };
 		E3D014556323E2CA470A2984 /* libPods-sarples2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C562F98519D17C703B026B /* libPods-sarples2.a */; };
+		5F9372B71BC440C684776A84 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FD3CD2BC23B4BA1BAA17A65 /* Roboto-Regular.ttf */; };
+		4A794FA4FF7840B4939E4177 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D58CCBDC9E924A70BF4C5860 /* Ubuntu-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		E363B4DDD95D8651BD01B464 /* Pods-sarples2-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sarples2-tvOS.release.xcconfig"; path = "Target Support Files/Pods-sarples2-tvOS/Pods-sarples2-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		6FD3CD2BC23B4BA1BAA17A65 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D58CCBDC9E924A70BF4C5860 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; name = "Ubuntu-Medium.ttf"; path = "../assets/fonts/Ubuntu-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				50D64158B7E429C4D16FD3D1 /* Pods */,
+				D9553394D0184385821B1731 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +202,16 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		D9553394D0184385821B1731 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				6FD3CD2BC23B4BA1BAA17A65 /* Roboto-Regular.ttf */,
+				D58CCBDC9E924A70BF4C5860 /* Ubuntu-Medium.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -340,6 +355,8 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				5F9372B71BC440C684776A84 /* Roboto-Regular.ttf in Resources */,
+				4A794FA4FF7840B4939E4177 /* Ubuntu-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
