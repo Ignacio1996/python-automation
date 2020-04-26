@@ -7,7 +7,7 @@ init_react_native = 'npx react-native init ' + project_name
 go_into_app = ' && cd ' + project_name + ' && pwd'
 start_app = ' && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 react_navigation = 'npm install @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack && '
-pod_install = 'npx pod-install ios &&'
+pod_install = 'cd ios && pod install && cd .. &&'
 open_project = 'code .'
 
 #Command to Build Project
