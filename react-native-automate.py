@@ -105,7 +105,6 @@ const HomeNavigationStack = () => {
 };
 
 export default HomeNavigationStack;
-
 """
 
 home_screen = """import React from 'react';
@@ -151,7 +150,7 @@ auth_navigation_file.write(authentication_stack)
 
 screens_index_file.write(index_screen)
 
-home_screen_file.write(default_screen)
+home_screen_file.write(home_screen)
 profile_screen_file.write(default_screen)
 signup_screen_file.write(default_screen)
 login_screen_file.write(default_screen)
