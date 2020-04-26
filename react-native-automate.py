@@ -8,8 +8,8 @@ go_into_app = 'cd ' + project_name + ' && pwd && '
 react_navigation = 'npm i @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack @react-navigation/drawer && '
 pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
-auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && cd .. && '
-screens = 'mkdir screens && cd screens && mkdir Home Login SignUp Profile && touch index.js Home/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
+auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && mkdir HomeNavigation && touch HomeNavigation/index.js && cd .. && '
+screens = 'mkdir screens && cd screens && mkdir Home Login SignUp Profile Details && touch index.js Home/index.js Details/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
 start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 open_project = 'code .'
 
@@ -45,8 +45,14 @@ signup_screen_file = open(signup_screen_location, "w")
 profile_screen_location = app_location + '/screens/Profile/index.js'
 profile_screen_file = open(profile_screen_location, "w")
 
+details_screen_location = app_location + '/screens/Details/index.js'
+details_screen_file = open(profile_screen_location, "w")
+
 screens_index_location = app_location + '/screens/index.js'
 screens_index_file = open(screens_index_location, "w")
+
+home_navigation_stack_location = app_location + './navigation/HomeNavigation/index.js'
+home_navigation_stack_file = open(home_navigation_stack_location, "w")
 
 
 
@@ -80,6 +86,37 @@ authentication_stack = """
 import React from 'react';
 """
 
+home_navigation_stack_screen = """
+import React from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+import {Home, Details} from '../../screens';
+
+const Stack = createStackNavigator();
+
+export const HomeNavigationStack = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Details" component={Details} />
+    </Stack.Navigator>
+  );
+};
+
+"""
+
+home_screen = """import React from 'react';
+import {View, Text, Button} from 'react-native';
+function Screen(props) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home</Text>
+      <Button title="Go to Home" onPress={()=>props.navigation.navigate("Details")}/>
+    </View>
+  );
+}
+export default Screen;
+"""
+
 default_screen = """import React from 'react';
 import {View, Text, Button} from 'react-native';
 function Screen(props) {
@@ -93,13 +130,16 @@ function Screen(props) {
 export default Screen;
 """
 
+
+
 index_screen = """import React from 'react';
 import Home from './Home';
 import Profile from './Profile';
 import Login from './Login';
 import SignUp from './SignUp';
+import Details from './Details';
 
-export {Home, Profile, Login, SignUp}
+export {Home, Profile, Login, SignUp, Details}
 """
 
 app_file.write(app_js)
@@ -111,6 +151,9 @@ home_screen_file.write(default_screen)
 profile_screen_file.write(default_screen)
 signup_screen_file.write(default_screen)
 login_screen_file.write(default_screen)
+details_screen_file.write(default_screen)
+
+home_navigation_stack_file.write(home_navigation_stack_screen)
 
 
 print('Your project has been initialized with react navigation!')
