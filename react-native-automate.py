@@ -1,6 +1,6 @@
 import os
 
-project_name = raw_input('Enter the project name: ')
+project_name = raw_input('Enter React Native project name: ')
 
 go_dir = 'cd ~ && cd projects && cd python && '
 init_react_native = 'npx react-native init ' + project_name + ' && '
