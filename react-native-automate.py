@@ -33,6 +33,14 @@ app_file = open(app_file_location, "w")
 auth_navigation_location = app_location + '/navigation/AuthNavigation/index.js'
 auth_navigation_file = open(auth_navigation_location, "w")
 
+# Screens
+home_screen_location = app_location + '/screens/Home/index.js'
+login_screen_location = app_location + '/screens/Login/index.js'
+signup_screen_location = app_location + '/screens/SignUp/index.js'
+profile_screen_location = app_location + '/screens/Profile/index.js'
+screens_index_location = app_location + '/screens/index.js'
+
+
 app_js = """
 import 'react-native-gesture-handler';
 import React, { Component } from "react";
@@ -83,6 +91,28 @@ const styles = StyleSheet.create({
 
 authentication_stack = """
 import React from 'react';
+"""
+
+default_screen = """import React from 'react';
+import {View, Text, Button} from 'react-native;
+function Screen(props) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button title="Go to Home" onPress={()=>props.navigation.navigate("Home")}/>
+    </View>
+  );
+}
+export default Screen;
+"""
+
+index_screen = """import React from 'react';
+import Home from './Home';
+import Profile from './Profile';
+import Login from './Login';
+import SignUp from './SignUp';
+
+export {Home, Profile, Login, SignUp}
 """
 
 app_file.write(app_js)
