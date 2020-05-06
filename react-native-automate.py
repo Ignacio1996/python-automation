@@ -2,7 +2,7 @@ import os
 
 project_name = raw_input('Enter React Native project name: ')
 
-go_dir = 'cd ~ && cd projects && cd python && '
+go_dir = 'cd ~ && cd projects && '
 init_react_native = 'npx react-native init ' + project_name + ' && '
 go_into_app = 'cd ' + project_name + ' && pwd && '
 react_navigation = 'npm i @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack @react-navigation/drawer && '
@@ -22,7 +22,7 @@ os.system(system_command)
 
 # Write Files
 user = 'nicolas'
-app_location = '/Users/' + user + '/projects/python/' + project_name
+app_location = '/Users/' + user + '/projects/' + project_name
 
 # App.js
 app_file_location = app_location + '/App.js'
