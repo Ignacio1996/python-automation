@@ -11,10 +11,11 @@ firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
 auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && mkdir HomeNavigation && touch HomeNavigation/index.js && cd .. && '
 screens = 'mkdir screens && cd screens && mkdir Home Login SignUp Profile Details && touch index.js Home/index.js Details/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
 start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
+init_repo = 'git init && '
 open_project = 'code .'
 
 #Command to Build Project
-system_command = go_dir + init_react_native + go_into_app + react_navigation + pod_install + firebase + auth_navigation + screens + start_app + open_project
+system_command = go_dir + init_react_native + go_into_app + react_navigation + pod_install + firebase + auth_navigation + screens + start_app + init_repo + open_project
 print("Full command" + system_command)
 
 #Build project
@@ -56,13 +57,12 @@ home_navigation_stack_file = open(home_navigation_stack_location, "w")
 
 
 
-app_js = """
-import 'react-native-gesture-handler';
+app_js = """import 'react-native-gesture-handler';
 import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {Home, Profile, Login, SignUp} from './screens';
+import {Profile, Login, SignUp} from './screens';
 
 import HomeNavigationStack from './navigation/HomeNavigation';
 
