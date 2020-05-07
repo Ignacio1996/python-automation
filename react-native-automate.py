@@ -64,13 +64,18 @@ icons_file = open(icons_location, "w")
 
 
 app_js = """import 'react-native-gesture-handler';
-import React from "react";
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
-import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import {
+  ApplicationProvider,
+  IconRegistry,
+  Layout,
+  Text,
+} from '@ui-kitten/components';
+import {EvaIconsPack} from '@ui-kitten/eva-icons';
 
 import {Profile, Login, SignUp} from './screens';
 
@@ -97,6 +102,7 @@ function App() {
 }
 
 export default App;
+
 """
 
 authentication_stack = """
