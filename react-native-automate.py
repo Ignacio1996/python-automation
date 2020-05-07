@@ -6,16 +6,18 @@ go_dir = 'cd ~ && cd projects && '
 init_react_native = 'npx react-native init ' + project_name + ' && '
 go_into_app = 'cd ' + project_name + ' && pwd && '
 react_navigation = 'npm i react-navigation  @react-navigation/native react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view @react-navigation/stack @react-navigation/drawer && '
+ui_kitten = 'npm i @ui-kitten/components@next @eva-design/eva@next react-native-svg @ui-kitten/eva-icons@next && '
 pod_install = 'pwd && cd ios && pod install && cd .. && '
 firebase = 'npm i firebase && mkdir firebase && touch firebase/index.js && '
 auth_navigation = 'mkdir navigation && cd navigation && mkdir AuthNavigation && touch AuthNavigation/index.js && mkdir AppNavigation && touch AppNavigation/index.js && mkdir HomeNavigation && touch HomeNavigation/index.js && cd .. && '
+app_components = 'mkdir components && mkdir components/Icons && touch components/Icons/index.js'
 screens = 'mkdir screens && cd screens && mkdir Home Login SignUp Profile Details && touch index.js Home/index.js Details/index.js Login/index.js SignUp/index.js Profile/index.js && cd .. && '
 start_app = 'pwd && npx react-native run-ios && source ~/.bash_profile && npx react-native run-android && '
 init_repo = 'git init && '
 open_project = 'code .'
 
 #Command to Build Project
-system_command = go_dir + init_react_native + go_into_app + react_navigation + pod_install + firebase + auth_navigation + screens + start_app + init_repo + open_project
+system_command = go_dir + init_react_native + go_into_app + react_navigation + ui_kitten + pod_install + firebase + auth_navigation + screens + start_app + init_repo + open_project
 print("Full command" + system_command)
 
 #Build project
@@ -55,12 +57,20 @@ screens_index_file = open(screens_index_location, "w")
 home_navigation_stack_location = app_location + '/navigation/HomeNavigation/index.js'
 home_navigation_stack_file = open(home_navigation_stack_location, "w")
 
+# Components
+icons_location = app_location + '/components/Icons/index.js'
+icons_file = open(icons_location, "w")
+
 
 
 app_js = """import 'react-native-gesture-handler';
 import React from "react";
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
 import {Profile, Login, SignUp} from './screens';
 
@@ -70,14 +80,19 @@ const Drawer = createDrawerNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeNavigationStack} />
-        <Drawer.Screen name="Login" component={Login} />
-        <Drawer.Screen name="Profile" component={Profile} />
-        <Drawer.Screen name="SignUp" component={SignUp} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider {...eva} theme={eva.light}>
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomeNavigationStack} />
+            <Drawer.Screen name="Login" component={Login} />
+            <Drawer.Screen name="Profile" component={Profile} />
+            <Drawer.Screen name="SignUp" component={SignUp} />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </ApplicationProvider>
+    </>
   );
 }
 
@@ -92,14 +107,9 @@ home_navigation_stack_screen = """import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Home, Details} from '../../screens';
 
-import {Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {IconSimpleUsageShowcase} from '../../components/Icons';
 
-const styles = StyleSheet.create({
-  tinyLogo: {
-    width: 50,
-    height: 50,
-  },
-});
+import {TouchableOpacity} from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -110,12 +120,7 @@ const HomeNavigationStack = ({navigation}) => {
         options={{
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
-              <Image
-                style={styles.tinyLogo}
-                source={{
-                  uri: 'https://static.thenounproject.com/png/696519-200.png',
-                }}
-              />
+              <IconSimpleUsageShowcase />
             </TouchableOpacity>
           ),
         }}
@@ -126,16 +131,26 @@ const HomeNavigationStack = ({navigation}) => {
     </Stack.Navigator>
   );
 };
-
 export default HomeNavigationStack;
 """
 
 home_screen = """import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text} from 'react-native';
+import { Button, Icon } from '@ui-kitten/components';
+
+const FacebookIcon = (props) => (
+  <Icon name='facebook' {...props} />
+);
+
+const LoginButton = () => (
+  <Button accessoryLeft={FacebookIcon}>Login with Facebook</Button>
+);
+
 function Screen(props) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home</Text>
+      <LoginButton />
       <Button title="Go to Home" onPress={()=>props.navigation.navigate("Details")}/>
     </View>
   );
@@ -156,8 +171,6 @@ function Screen(props) {
 export default Screen;
 """
 
-
-
 index_screen = """import React from 'react';
 import Home from './Home';
 import Profile from './Profile';
@@ -167,6 +180,26 @@ import Details from './Details';
 
 export {Home, Profile, Login, SignUp, Details}
 """
+
+icons_screen ="""import React from 'react';
+import {StyleSheet} from 'react-native';
+import {Icon} from '@ui-kitten/components';
+
+export const IconSimpleUsageShowcase = () => (
+  <Icon style={styles.icon} fill="#8F9BB3" name="menu" />
+);
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 32,
+    height: 32,
+    marginLeft: 10,
+  },
+});
+"""
+
+
+#Write Files
 
 app_file.write(app_js)
 auth_navigation_file.write(authentication_stack)
@@ -180,6 +213,8 @@ login_screen_file.write(default_screen)
 details_screen_file.write(default_screen)
 
 home_navigation_stack_file.write(home_navigation_stack_screen)
+
+icons_file.write(icons_screen)
 
 
 print('Your project has been initialized with react navigation!')
