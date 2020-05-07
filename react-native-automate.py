@@ -17,7 +17,7 @@ init_repo = 'git init && '
 open_project = 'code .'
 
 #Command to Build Project
-system_command = go_dir + init_react_native + go_into_app + react_navigation + ui_kitten + pod_install + firebase + auth_navigation + screens + start_app + init_repo + open_project
+system_command = go_dir + init_react_native + go_into_app + react_navigation + ui_kitten + pod_install + firebase + auth_navigation + app_components + screens + start_app + init_repo + open_project
 print("Full command" + system_command)
 
 #Build project
